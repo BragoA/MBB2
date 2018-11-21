@@ -1,0 +1,7 @@
+<h1>Product Details</h1>
+<div *ngIf = 'selectedProduct'>
+    <p>Name:{{selectedProduct[0].name}}</p>
+    <p>Qty: {{selectedProduct[0].quantity}}</p>
+    <p>Name: {{selectedProduct[0].price}}</p>
+</div>
+<span *ngIf = 'canDel'><button (click) = 'deleteProduct(selectedProduct[0]._id)'>delete</button></span><span *ngIf = '!canDel'><button disabled>delete</button></span><button [routerLink] = "['/']">back</button>

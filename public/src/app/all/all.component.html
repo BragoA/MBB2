@@ -1,0 +1,26 @@
+<div class = 'wrapper'>
+  <h1>Product List</h1>
+  <button class ='addButton' [routerLink] = "['/product','create']">Add New Product</button>
+  <div class= 'tableDiv'>
+    <table>
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Qty</th>
+          <th>Price</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = 'let product of allP'>
+          <td>{{product.customId}}</td>
+          <td>{{product.name}}</td>
+          <td>{{product.quantity}}</td>
+          <td>{{product.price}}</td>
+          <td><button [routerLink]= "['/product','update', product.customId]">edit</button><button [routerLink]= "['/product', product.customId]">view</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

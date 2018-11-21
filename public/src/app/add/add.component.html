@@ -1,0 +1,18 @@
+<div class = 'wrapper'>
+  <h1>New Product</h1>
+  <p *ngIf = 'priceError'>{{priceError}}</p> 
+  <p *ngIf = 'quantityError'>{{quantityError}}</p>  
+  <form>
+    <p *ngIf = 'name.errors'>Product Name Needs 3 or More Characters</p>
+    <p>Name:<input name = 'name' type = 'text' [(ngModel)] = 'newProduct.name' #name = 'ngModel' required minlength="3"></p>
+    <p *ngIf = 'quantity.errors'>Gotta Have Stock</p>
+    <p>Qty:<input name = 'quantity' type = 'number' [(ngModel)] = 'newProduct.quantity' #quantity = 'ngModel' required min="1"></p>
+    <p *ngIf ='price.errors'>Needs a Price</p>
+    <p>Price:<input name = 'price' type = 'number' [(ngModel)] = 'newProduct.price' #price = 'ngModel' required min="1"></p>
+    <input name = 'customId' type = 'hidden' [(ngModel)] = 'newProduct.customId' #customId = 'ngModel' required value = Id>
+    <span *ngIf = '!name.errors' ><span *ngIf = '!quantity.errors' ><span *ngIf = '!price.errors' ><button (click)='addProduct()'>create</button></span></span></span><span *ngIf = 'price.errors || quantity.errors || name.errors' ><button disabled>create</button></span>    
+    <button (click)='resetProductForm()'>reset</button>
+    <button [routerLink] = "['/']">go back</button>  
+  </form>
+
+</div>
